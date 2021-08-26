@@ -1,0 +1,21 @@
+@mixin clearfix {
+  content: "";
+  clear: both;
+  display: table;
+}
+// @include clearfix();
+
+@mixin medium {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin large {
+  @media(min-width: 1200px) {
+    @content;
+  }
+}
+// @include medium {
+//   background-color: red;
+// }

@@ -1,0 +1,70 @@
+body{
+  padding: 0; margin: 0;
+  font-family: $fontbody;
+  font-size: 20px;
+  line-height: 1.7;
+}
+h1, h2, h3, h4, h5, h6{
+  font-family: $fontheading;
+  line-height: 1.3;
+}
+h1{
+  font-size: 1.3em;
+  @include medium {
+    font-size: 2em;
+  }
+}
+h2{
+  font-size: 1.2em;
+  @include medium {
+    font-size: 1.5em;
+  }
+}
+h3{
+  font-size: 1.17em;
+}
+h4{
+  font-size: 1.12em;
+}
+h5{
+  font-size: .83em;
+}
+h6{
+  font-size: .75em;
+}
+p{
+  margin-bottom: 60px;
+}
+img{
+  max-width: 100%; height: auto;
+  padding: .25rem;
+  border: 1px solid #dee2e6;
+  border-radius: .25rem;
+}
+blockquote{
+  background: #f9f9f9;
+  border-left: 10px solid #ccc;
+  margin: 2.5em 5px;
+  padding: 2.5em 15px;
+  quotes: "\201C""\201D""\2018""\2019";
+  text-align: justify;
+}
+blockquote:before {
+  color: #ccc;
+  content: open-quote;
+  font-size: 4em;
+  line-height: 0.1em;
+  margin-right: 0.25em;
+  vertical-align: -0.4em;
+}
+blockquote p {
+  font-size: 24px;
+  display: inline;
+  font-style: italic;
+}
+blockquote cite{
+  display: block;
+  margin-top: 30px;
+  letter-spacing: 2px;
+  font-weight: bold;
+}

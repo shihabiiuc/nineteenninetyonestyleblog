@@ -1,0 +1,63 @@
+article.post{
+  border-bottom: 2px dotted #bbbbbb;
+  max-width: 750px;
+  margin: 60px auto 60px auto;
+  padding: 0 15px 30px;
+  h2{
+    text-transform: capitalize;
+    a{
+      color: $blue;
+      text-decoration: none;
+    }
+  }
+  p{
+    margin-bottom: 30px;
+    text-align: justify;
+  }
+  a.readmore{
+    text-decoration: none;
+    background-color: #bbbbbb;
+    padding: 7px 20px;
+    border: 1px solid #a7a5a5;
+    border-radius: 2px;
+    margin-bottom: 60px;
+  }
+  // featured image
+  a img{
+    display: block;
+    margin: auto;
+  }
+
+}
+article.post:last-of-type{
+  border-bottom: none;
+}
+
+// pagination
+nav.shihabiiucblogi-pagination{
+  display: flex; justify-content: center; 
+  background: $lightbg; padding: 60px 15px;
+  .page-numbers {
+    display: inline-block;
+    padding: 8px 15px;
+    margin: 0 5px 0 0;
+    border: 1px solid $lightbg;
+    line-height: 1;
+    text-decoration: none;
+    border-radius: 2px;
+    font-weight: 600;
+    background-color: $blue; 
+    color: white;
+    transition: 0.8s ease-in-out;
+  }
+  .page-numbers.current {
+    background: #42a5f1;
+    color: white;
+  }
+  a.page-numbers:hover{
+    background: #015392;
+  }
+  .prev, .next{
+    position: static; top: auto; color: white; font-weight: normal;
+  }
+}

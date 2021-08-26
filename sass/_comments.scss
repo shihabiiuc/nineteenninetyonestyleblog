@@ -1,0 +1,42 @@
+.shihabiiuc-post-comments {padding: 60px 15px; background-color: $lightbg;
+  .shihabiiuc-post-comments-template{max-width: 850px; margin: auto;
+    // xx comments on yyy 
+    h2.comments-title{font-size: 1rem; line-height: 1.7;}
+    h2.comments-title span{color: $lightgray;}
+    footer{background-color: transparent; padding: 0;}
+    // leave a reply
+    h3#reply-title{ font-size: 2rem; margin-top: 30px;}
+    .comment-policy {padding: 10px; background-color: $lightgray; border-radius: 3px; color: #FFFFFF; font-size: 14px; font-style: italic;}
+    .comment-form-comment label{width: 100%; display: block; font-size: 1.5rem;}
+    .comment-form-comment textarea#comment{width: 100%;  font-size: 1.2rem; line-height: 1.7;}
+
+    .comment-form-author input, .comment-form-email input{flex: 1;  font-size: 1.2rem; line-height: 1.7; max-width: 100%;}
+    .comment-form-author label, .comment-form-email label{font-size: 1.5rem;}
+
+    .comment-form-cookies-consent{font-size: 14px;}
+    .comment-form-cookies-consent input:hover, .comment-form-cookies-consent label:hover{cursor: pointer;}
+
+    // button
+    .form-submit input#submit{
+      padding: 20px 24px; margin: 10px 0; display: inline-block; font-size: 30px; text-align: center; border: 2px solid #01599c; background-color: $blue; color: white; transition: background-color 0.8s ease-in-out;
+    }
+    .form-submit input#submit:hover{cursor: pointer; background-color:#01599c;}
+
+    // approved comments
+    .comment-list{padding: 0; list-style-type:none;}
+    .comment-author img{border: 2px solid $blue; border-radius: 50%;}
+    .comment-body{margin-bottom: 45px;}
+    .children p{font-style: italic; font-size: .9rem; color: $heading;}
+
+  }
+}
+
+@include medium {
+  .shihabiiuc-post-comments{
+    .shihabiiuc-post-comments-template{
+      h3#reply-title{font-size: 2.5rem;}
+      // name & email
+      .comment-form-author, .comment-form-email {display: flex;}
+    }
+  }
+}
